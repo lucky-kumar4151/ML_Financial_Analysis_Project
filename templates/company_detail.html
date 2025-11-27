@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 style="margin-bottom: 15px;">{{ company.company_id }} - {{ company.name }}</h2>
+
+<div class="analysis-container">
+
+    <!-- ANALYSIS SECTION -->
+    <div class="card-large">
+        <h3 class="section-title">Analysis</h3>
+        <p class="subtitle"># Analysis Generated Using ML</p>
+
+        <div class="analysis-grid">
+
+            <!-- SALES GROWTH CARD -->
+            <div class="mini-card">
+                <h4 class="mini-title">Compounded Sales Growth</h4>
+                <p>3 Years: {{ latest.metrics.sales_growth|default:"%" }}%</p>
+                <p>5 Years: {{ latest.metrics.sales_5y|default:"%" }}%</p>
+                <p>10 Years: {{ latest.metrics.sales_10y|default:"%" }}%</p>
+            </div>
+
+            <!-- PROFIT GROWTH CARD -->
+            <div class="mini-card">
+                <h4 class="mini-title">Compounded Profit Growth</h4>
+                <p>3 Years: {{ latest.metrics.profit_growth|default:"%" }}%</p>
+                <p>5 Years: {{ latest.metrics.profit_5y|default:"%" }}%</p>
+                <p>10 Years: {{ latest.metrics.profit_10y|default:"%" }}%</p>
+            </div>
+
+            <!-- ROE CARD -->
+            <div class="mini-card">
+                <h4 class="mini-title">Return on Equity</h4>
+                <p>3 Years: {{ latest.metrics.roe|default:"%" }}%</p>
+                <p>5 Years: {{ latest.metrics.roe_5y|default:"%" }}%</p>
+                <p>10 Years: {{ latest.metrics.roe_10y|default:"%" }}%</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- PROS & CONS SECTION -->
+    <div class="card-large">
+
+        <h3 class="section-title">Pros and Cons</h3>
+        <p class="subtitle"><span class="dot"></span> Generated Using Machine Learning</p>
+
+        <div class="pros-cons-grid">
+
+            <!-- PROS CARD -->
+            <div class="pros-card">
+                <h4 class="pc-title">Pros</h4>
+                <ul>
+                    {% for p in latest.pros %}
+                        <li>{{ p }}</li>
+                    {% empty %}
+                        <li>No pros available</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- CONS CARD -->
+            <div class="cons-card">
+                <h4 class="pc-title">Cons</h4>
+                <ul>
+                    {% for c in latest.cons %}
+                        <li>{{ c }}</li>
+                    {% empty %}
+                        <li>No cons available</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

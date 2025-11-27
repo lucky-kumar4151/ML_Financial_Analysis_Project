@@ -1,0 +1,148 @@
+/* ---- MAIN ANALYSIS CONTAINER ---- */
+.analysis-container {
+    margin-top: 20px;
+}
+
+/* ---- LARGE CARD ---- */
+.card-large {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+/* ---- TITLES ---- */
+.section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1e3a8a;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 18px;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    background-color: #6b7280;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+/* ---- GRID (3 CARDS) ---- */
+.analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.mini-card {
+    background: white;
+    border-radius: 14px;
+    padding: 20px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.mini-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1d4ed8;
+    margin-bottom: 12px;
+}
+
+.mini-card p {
+    font-size: 15px;
+    margin: 4px 0;
+}
+
+/* ---- PROS & CONS ---- */
+.pros-cons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-top: 20px;
+}
+
+.pros-card {
+    background: #34d399;
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    min-height: 170px;
+}
+
+.cons-card {
+    background: #f43f5e;
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    min-height: 170px;
+}
+
+.pc-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.pros-card ul li,
+.cons-card ul li {
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+
+
+/* ---- STYLED TABLE ---- */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+}
+
+.styled-table thead tr {
+    background: #e0e7ff;
+    color: #1e3a8a;
+    text-align: left;
+    font-weight: 600;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 14px 18px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background: #f9fafb;
+}
+
+.styled-table tbody tr:hover {
+    background: #eef2ff;
+    transition: 0.2s;
+}
+
+/* ---- Table links ---- */
+.table-link {
+    color: #2563eb;
+    font-weight: 600;
+}
+
+.table-link:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+

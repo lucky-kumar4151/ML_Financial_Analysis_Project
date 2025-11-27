@@ -1,0 +1,53 @@
+{% load static %}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ML Financial Analysis</title>
+     <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+<header>
+    <h1><a href="{% url 'home' %}">FinanceML</a></h1>
+
+    <nav>
+        <a href="{% url 'home' %}">Companies</a>
+        <a href="{% url 'view_all' %}">View All</a>
+        <a href="#" id="run-btn">Run Analysis</a>
+    </nav>
+</header>
+
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+<footer>
+    Machine Learning Financial Analysis — Django MVT Project
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.querySelector("#run-btn");
+    if (btn) {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (!confirm("Run full analysis now?")) return;
+
+            btn.textContent = "Running...";
+            fetch("{% url 'run_now' %}", { method: "POST", headers: {"X-CSRFToken": "{{ csrf_token }}"} })
+            .then(res => res.json())
+            .then(data => {
+                alert("Analysis completed!");
+                btn.textContent = "Run Analysis";
+            });
+        });
+    }
+});
+</script>
+
+</body>
+</html>

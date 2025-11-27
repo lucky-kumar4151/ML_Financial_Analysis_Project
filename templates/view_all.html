@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Browse All Companies</h2>
+
+<div class="card">
+<ul>
+    {% for c in companies %}
+        <li>
+            <a href="{% url 'company_detail' c.company_id %}">
+                {{ c.company_id }} - {{ c.name }}
+            </a>
+        </li>
+    {% empty %}
+        <li>No companies available.</li>
+    {% endfor %}
+</ul>
+</div>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 style="margin-bottom: 15px;">All Companies</h2>
+
+<div class="card-large">
+
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Company ID</th>
+                <th>Name</th>
+                <th>Latest ML Run</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for c in companies %}
+            <tr>
+                <td>
+                    <a href="{% url 'company_detail' c.company_id %}" class="table-link">
+                        {{ c.company_id }}
+                    </a>
+                </td>
+                <td>{{ c.name|default:"-" }}</td>
+                <td>
+                    {% if c.ml_results.first %}
+                        {{ c.ml_results.first.created_at|date:"d M Y H:i" }}
+                    {% else %}
+                        -
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}
